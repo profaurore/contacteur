@@ -18,16 +18,18 @@ use crate::connecteurs::{exporter_contacts_classeur, importer_encompass, importe
 fn main() -> Result<()> {
     let mut conn = bd::ouvrir(Some("contacteur.db3"))?;
 
-    //importer_encompass(&mut conn)?;
+    let sauter = false;
+    if sauter {
+        importer_encompass(&mut conn)?;
 
-    //println!("Exportation des données à un fichier...");
-    //exporter_contacts_classeur(&conn)?;
-    //println!("Exportation réussie!");
+        println!("Exportation des données à un fichier...");
+        exporter_contacts_classeur(&conn)?;
+        println!("Exportation réussie!");
 
-    //println!("Importation des notes d'évaluation...");
-    //importer_notes_classeur(&mut conn)?;
-    //println!("Importation réussie!");
-
+        println!("Importation des notes d'évaluation...");
+        importer_notes_classeur(&mut conn)?;
+        println!("Importation réussie!");
+    }
 
 
     // TODO: exporter au format PDF/html-email approprié
