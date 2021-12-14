@@ -1,0 +1,28 @@
+cargo-features = ["different-binary-name"]
+
+[package]
+name = "contacteur"
+version = "0.1.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "contacts"
+filename = "Coordonnées de parents"
+path = "src/contacts.rs"
+
+[[bin]]
+name = "dev-experimental"
+path = "src/donnees.rs"
+
+[dependencies]
+reqwest = { version = "0.11.4", features = ["blocking", "cookies"] }
+regex = "1.5.4"
+html-escape = "0.2.9"
+csv = "1.1.6"
+rpassword = "5.0.1"
+rusqlite = { version = "0.26.1", features = ["bundled"] }
+spreadsheet-ods = "0.9.0"
+percent-encoding = "2.1.0"
+chrono = "0.4.19"
